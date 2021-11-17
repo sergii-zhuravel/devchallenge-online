@@ -18,21 +18,29 @@ export function playOneNote(frequency, length, instrument, context) {
   oscillator.stop(currentTime + length);
 }
 
-export function playMelody(melody, tempo, instrument) {
-  if (melody.length <= 0) {
+export function playMelody(player) {
+  if (player.melody.length <= 0) {
     return;
   }
-  const context = new AudioContext();
+  player.context = new AudioContext();
 
-  let delay = 0;
+  player.isPlaying = true;
+  playLoop(player);
+}
 
-  for (const note of melody) {
-    const [noteFrequency, noteLength] = note;
-    const noteLengthInSec = calcNoteLengthInSec(noteLength, tempo);
-    window.setTimeout(
-      () => playOneNote(noteFrequency, noteLengthInSec, instrument, context),
-      delay * 1000
-    );
-    delay += noteLengthInSec;
+export function playLoop(player) {
+  // const secondsPerBeat = 60.0 / tempo;
+  if (player.isPlaying && player.melody.length > 0) {
+    const [noteFrequency, noteLength] = player.melody.shift();
+    const noteLengthInSec = calcNoteLengthInSec(noteLength, player.tempo);
+    playOneNote(
+      noteFrequency,
+      noteLengthInSec,
+      player.instrument,
+      player.context
+    ),
+      window.setTimeout(function () {
+        playLoop(player);
+      }, noteLengthInSec * 1000);
   }
 }

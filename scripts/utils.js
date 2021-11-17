@@ -10,7 +10,8 @@ export function getNote(noteSymbol) {
   }
   return noteFrequency;
 }
-
+// @return 2D array of notes frequencies and lenght
+// @example [[40, '4'], [200, '8.']]
 export function parseMelody(input) {
   return input.split(" ").map(parseOneRecord);
 }
