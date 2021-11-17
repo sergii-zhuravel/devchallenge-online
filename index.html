@@ -9,42 +9,87 @@
   </head>
 
   <body>
-    <form action="">
-      <label for="melody">Melody:</label>
-      <input id="melody" name="melody" placeholder="E4/4 E4/4..." />
+    <h1>Simplified melody player</h1>
+    <section>
+      <h2>Player 1</h2>
+      <form id="form1" action="">
+        <label for="melody">Melody:</label>
+        <input id="melody" name="melody" placeholder="E4/4 E4/4..." />
 
-      <label for="tempo">Tempo:</label>
-      <input id="tempo" name="tempo" placeholder="tempo (BPM)" value="100" />
-      <div>
-        <p>Please select instrument:</p>
+        <label for="tempo">Tempo:</label>
+        <input id="tempo" name="tempo" placeholder="tempo (BPM)" value="100" />
         <div>
-          <input
-            type="radio"
-            id="instrument1"
-            name="instrument"
-            value="sine"
-            checked
-          />
-          <label for="instrument1">Instrument1</label>
+          <p>Please select instrument:</p>
+          <div>
+            <input
+              type="radio"
+              id="instrument1"
+              name="instrument"
+              value="sine"
+              checked
+            />
+            <label for="instrument1">Instrument1</label>
 
-          <input
-            type="radio"
-            id="instrument2"
-            name="instrument"
-            value="sawtooth"
-          />
-          <label for="instrument2">Instrument2</label>
+            <input
+              type="radio"
+              id="instrument2"
+              name="instrument"
+              value="sawtooth"
+            />
+            <label for="instrument2">Instrument2</label>
 
-          <input
-            type="radio"
-            id="instrument3"
-            name="instrument"
-            value="square"
-          />
-          <label for="instrument3">Instrument3</label>
+            <input
+              type="radio"
+              id="instrument3"
+              name="instrument"
+              value="square"
+            />
+            <label for="instrument3">Instrument3</label>
+          </div>
         </div>
-      </div>
-      <button id="play" type="submit">Play me</button>
-    </form>
+        <button id="play" type="submit">Play</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Player 2</h2>
+      <form id="form2" action="">
+        <label for="melody2">Melody:</label>
+        <input id="melody2" name="melody" placeholder="E4/4 E4/4..." />
+
+        <label for="tempo2">Tempo:</label>
+        <input id="tempo2" name="tempo" placeholder="tempo (BPM)" value="100" />
+        <div>
+          <p>Please select instrument:</p>
+          <div>
+            <input
+              type="radio"
+              id="instrument12"
+              name="instrument"
+              value="sine"
+              checked
+            />
+            <label for="instrument12">Instrument1</label>
+
+            <input
+              type="radio"
+              id="instrument22"
+              name="instrument"
+              value="sawtooth"
+            />
+            <label for="instrument22">Instrument2</label>
+
+            <input
+              type="radio"
+              id="instrument32"
+              name="instrument"
+              value="square"
+            />
+            <label for="instrument32">Instrument3</label>
+          </div>
+        </div>
+        <button id="play2" type="submit">Play</button>
+      </form>
+    </section>
   </body>
 </html>
