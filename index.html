@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./scripts/app.js" defer type="module"></script>
-</head>
-<body>
-    <input id="melody" placeholder="notes: E4/4 E4/4..."></input>
-    <input id="tempo" placeholder="tempo (BPM)"></input>
-    <button id="play">Play me</button>
-</body>
+  </head>
+
+  <body>
+    <form action="">
+      <label for="melody">Melody:</label>
+      <input id="melody" name="melody" placeholder="E4/4 E4/4..." />
+
+      <label for="tempo">Tempo:</label>
+      <input id="tempo" name="tempo" placeholder="tempo (BPM)" value="100" />
+      <div>
+        <p>Please select instrument:</p>
+        <div>
+          <input
+            type="radio"
+            id="instrument1"
+            name="instrument"
+            value="sine"
+            checked
+          />
+          <label for="instrument1">Instrument1</label>
+
+          <input
+            type="radio"
+            id="instrument2"
+            name="instrument"
+            value="sawtooth"
+          />
+          <label for="instrument2">Instrument2</label>
+
+          <input
+            type="radio"
+            id="instrument3"
+            name="instrument"
+            value="square"
+          />
+          <label for="instrument3">Instrument3</label>
+        </div>
+      </div>
+      <button id="play" type="submit">Play me</button>
+    </form>
+  </body>
 </html>

@@ -4,23 +4,27 @@ import { parseMelody } from "./utils.js";
 const melodyInput =
   "E4/4 E4/4 E4/4 D#4/8. A#4/16 E4/4 D#4/8. A#4/16 E4/2 D5/4 D5/4 D5/4 D#5/8. A#4/16 F#4/4 D#4/8. A#4/16 E4/2";
 const DEFAULT_TEMPO = 100;
-// const melody = parseMelody(melodyInput);
-let oscillator;
-let currentTime;
+const DEFAULT_INSTRUMENT = "sine";
+const form = document.querySelector("form");
 
-export function play() {
-  const melodyInput = document.getElementById("melody");
-  const tempoInput = document.getElementById("tempo");
-  if (!melodyInput.value) {
-    // error handling
-    console.error("Field is required");
-    return;
-  }
-  const melody = parseMelody(melodyInput.value);
-  const tempo = tempoInput.value || DEFAULT_TEMPO;
+form.addEventListener(
+  "submit",
+  function (event) {
+    event.preventDefault();
 
-  playMelody(melody, tempo);
-}
+    var data = new FormData(form);
+    const melodyString = data.get("melody").trim();
+    const tempo = data.get("tempo") || DEFAULT_TEMPO;
+    const instrument = data.get("instrument") || DEFAULT_INSTRUMENT;
 
-const playButton = document.getElementById("play");
-playButton.onclick = play;
+    if (!melodyString) {
+      // error handling can be implemented here
+      console.error("Field is required");
+      return;
+    }
+    const melody = parseMelody(melodyString);
+
+    playMelody(melody, tempo, instrument);
+  },
+  false
+);

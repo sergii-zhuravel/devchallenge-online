@@ -10,8 +10,6 @@ export function parseMelody(input) {
 
 export function parseOneRecord(record) {
   const [note, noteLength] = record.split("/");
-  // const multiplier = noteLength.includes(".") ? 1.5 : 1;
-  // const noteLengthInSec = (((1 / (tempo / 60)) * 4) / noteLength) * multiplier;
   return [getNote(note), noteLength];
 }
 
