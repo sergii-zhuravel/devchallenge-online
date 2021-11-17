@@ -1,7 +1,16 @@
 import { noteValues } from "./consts.js";
 
+const DEFAULT_NOTE = 16.35;
+
 export function getNote(noteSymbol) {
-  return noteValues[noteSymbol];
+  const noteFrequency = noteValues[noteSymbol];
+
+  // simple fallback before validation of all melody string is implemented
+  if (!noteFrequency) {
+    console.error("Note is incorrect");
+    return DEFAULT_NOTE;
+  }
+  return noteFrequency;
 }
 
 export function parseMelody(input) {
