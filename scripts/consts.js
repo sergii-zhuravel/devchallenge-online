@@ -1,4 +1,8 @@
-export const noteValues = {
+export const DEFAULT_TEMPO = 100;
+export const DEFAULT_INSTRUMENT = "sine";
+export const DEFAULT_NOTE = 16.35;
+
+export const NOTES_FREQUENCY_MAP = {
   C0: 16.35,
   "C#0": 17.32,
   Db0: 17.32,
